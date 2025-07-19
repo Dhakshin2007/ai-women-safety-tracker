@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Safety Journey Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css"> <!-- Link to your main stylesheet -->
+    <style>
+        /* Add specific styles for the login page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            max-width: 500px;
+            width: 100%;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .contact-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f0f2f5;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .remove-contact-btn {
+            background: none;
+            border: none;
+            color: #e53e3e;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        #notification { z-index: 10001; } /* Ensure notification is on top */
+    </style>
+</head>
+<body>
+    <div id="notification"></div>
+    <div class="container login-container">
+        <h1><i class="fas fa-shield-alt"></i> Welcome Back</h1>
+        <p style="text-align: center; color: white; margin-bottom: 20px;">Enter your email to login or signup.</p>
+
+        <div class="section">
+            <form id="auth-form">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <input type="email" id="email-input" placeholder="✉️ Enter your email" required>
+                    
+                    <!-- Signup-only fields, hidden by default -->
+                    <div id="signup-fields" style="display: none; width: 100%; flex-direction: column; gap: 15px;">
+                        <input type="text" id="name-input" placeholder="👤 Enter your full name">
+                        
+                        <div>
+                            <p style="color:#4a5568; margin-bottom: 10px;">Your Emergency Contacts:</p>
+                            <div class="input-row" style="align-items: center;">
+                                <input type="text" id="contact-input" placeholder="📧 Add contact's email or phone">
+                                <button type="button" class="btn-primary" id="add-contact-btn" style="min-width: 80px;">Add</button>
+                            </div>
+                            <ul id="contact-list" class="contact-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="button-group" style="margin-top: 20px;">
+                        <button type="submit" class="btn-success" id="auth-btn" style="width: 100%;">
+                            <i class="fas fa-sign-in-alt"></i> Continue
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
